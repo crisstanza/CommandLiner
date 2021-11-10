@@ -65,14 +65,35 @@ namespace io.github.crisstanza.commandliner
 			{
 				PropertyInfo propertyInfo = propertiesToSet[name];
 				CommandLineArgumentAttribute attribute = (CommandLineArgumentAttribute)propertyInfo.GetCustomAttribute(typeof(CommandLineArgumentAttribute));
-				propertyInfo.SetValue(obj, attribute.DefaultValue);
+				object typedArgValue;
+				if (attribute.EnvironmentVariable != null)
+				{
+					string argValue = Environment.GetEnvironmentVariable(attribute.EnvironmentVariable);
+					if (argValue == null)
+					{
+						typedArgValue = attribute.DefaultValue;
+					}
+					else
+					{
+						typedArgValue = GetTypedValue(propertyInfo.PropertyType, argValue, attribute);
+					}
+				}
+				else
+				{
+					typedArgValue = attribute.DefaultValue;
+				}
+				propertyInfo.SetValue(obj, typedArgValue);
 			}
 			return obj;
 		}
 
 		private object GetTypedValue(Type type, string value, CommandLineArgumentAttribute attribute)
 		{
-			if (type.IsAssignableFrom(typeof(Double)))
+			if (value == null)
+			{
+				return null;
+			}
+			else if (type.IsAssignableFrom(typeof(Double)))
 			{
 				return Double.Parse(value);
 			}
