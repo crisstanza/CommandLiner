@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\io.github.crisstanza.arguments\CommandLineArgumentAttribute.cs" />
-    <Compile Include="src\io.github.crisstanza\CommandLiner.cs" />
+    <Compile Include="src\io.github.crisstanza.commandliner\CommandLineArgumentAttribute.cs" />
+    <Compile Include="src\io.github.crisstanza.commandliner\CommandLiner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

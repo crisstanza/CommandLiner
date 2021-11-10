@@ -1,9 +1,8 @@
-﻿using io.github.crisstanza.arguments;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace io.github.crisstanza
+namespace io.github.crisstanza.commandliner
 {
 	public class CommandLiner
 	{

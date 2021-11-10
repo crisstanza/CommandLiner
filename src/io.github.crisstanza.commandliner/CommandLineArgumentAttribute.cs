@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace io.github.crisstanza.arguments
+namespace io.github.crisstanza.commandliner
 {
 	[System.AttributeUsage(System.AttributeTargets.Property)]
 	public class CommandLineArgumentAttribute : Attribute
