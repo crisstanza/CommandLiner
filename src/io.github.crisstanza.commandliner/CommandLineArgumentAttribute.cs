@@ -6,7 +6,6 @@ namespace io.github.crisstanza.commandliner
 	public class CommandLineArgumentAttribute : Attribute
 	{
 		public object DefaultValue { get; set; }
-
 		public string EnvironmentVariable { get; set; }
 	}
 }
