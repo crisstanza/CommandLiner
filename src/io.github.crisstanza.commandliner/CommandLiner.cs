@@ -20,8 +20,8 @@ namespace io.github.crisstanza.commandliner
 			IEnumerable<PropertyInfo> propertyInfos = type.GetRuntimeProperties();
 			foreach (PropertyInfo propertyInfo in propertyInfos)
 			{
-                Attribute attribute = propertyInfo.GetCustomAttribute(typeof(CommandLineArgumentAttribute));
-                if (attribute != null)
+				Attribute attribute = propertyInfo.GetCustomAttribute(typeof(CommandLineArgumentAttribute));
+				if (attribute != null)
 				{
 					propertiesToSet.Add(propertyInfo.Name, propertyInfo);
 				}
@@ -109,6 +109,10 @@ namespace io.github.crisstanza.commandliner
 			{
 				return value;
 			}
+		}
+		public static string Version()
+		{
+			return Assembly.GetExecutingAssembly().GetName().Version.ToString();
 		}
 	}
 }
